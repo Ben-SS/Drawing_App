@@ -1,0 +1,421 @@
+@font-face {
+    font-family: Gel;
+    src: url('/fonts/GelPen.ttf');
+}
+
+body{
+	font-family: "Gel";
+	overflow: hidden;
+	background: -webkit-linear-gradient(lightblue, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(lightblue, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(lightblue, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(lightblue, white);
+}
+
+.wall{
+	padding:0;
+	height:100vh;
+}
+
+.row{
+	padding:0;
+}
+
+#box{
+	text-align: center;
+	width: 50vw;
+	margin: 10vh auto auto auto;
+}
+
+#list{
+	text-align: left;
+}
+
+.points{
+	line-height: 5vh;
+	margin-bottom: 10vh;
+}
+
+#canvas{
+	position: relative;
+	width: 800px;
+	height: 600px;
+	margin: 3.8vh auto auto auto;
+	background: white;
+	border-radius: 10px;
+	border: 0.5px solid rgba(21,21,21,0.3);
+	box-shadow: 0 4px 5px rgba(21,21,21,0.5);
+}
+
+.canvas{
+	padding: 0;
+}
+
+#palette{
+	position: relative;
+	margin: 1.5vh auto auto auto;
+	padding: 0 1vw 0 0;
+	max-height:100vh;
+	text-align: center;
+	border-radius: 10px;
+    background: transparent;
+}
+
+#background{
+	width:100%;
+	margin-bottom:2vh;
+}
+
+#shape{
+	width:100%;
+	margin-bottom:1vh;
+}
+
+#colours{
+}
+
+#clear{
+	width:100%;
+	text-align: center;
+	margin:1vh 0 0 0;
+
+}
+
+#splat{
+	width: 13vh;
+	border-radius: 5px;
+	margin-top:1vh;
+	margin-bottom:1.5vh;
+}
+
+#splat:hover{
+	background: gray;
+}
+
+#splat:active{
+	background: white;
+}
+
+#rubber{
+	width: 12vh;
+	border-radius: 5px;
+	margin:1vh 0 2vh 0;
+}
+
+#rubber:hover{
+	background: gray;
+	cursor: pointer;
+}
+
+#rubber:active{
+	background: white;
+}
+
+.palette-text1{
+	font-size: 14pt;
+	text-align: center;
+	color: black;
+	font-family: "Gel";
+	padding: 0;
+	margin: 0 0 2vh 0;
+}
+
+.palette-text2{
+	font-size: 11pt;
+	text-align: center;
+	color: #333333;
+	-webkit-text-stroke: 0.15px black;
+	font-family: "Gel";
+	padding: 0;
+	margin: 0;
+}
+
+.palette-text3{
+	font-size: 28pt;
+	text-align: center;
+	font-weight: bold;
+	color: orange;
+	-webkit-text-stroke: 0.25px black;
+	font-family: "Gel";
+	padding: 0;
+	margin: 0 0 1vh 0;
+}
+
+.palette-text4{
+	font-size: 11pt;
+	text-align: center;
+	color: red;
+	font-family: "Gel";
+	padding: 0;
+	margin: 0;
+}
+
+#colours{
+	position: relative;
+	text-align: center;
+}
+
+.color{
+	margin: 2vh auto 2vh auto;
+	display: inline-block;
+}
+
+.bg-color{
+	margin: 0 auto;
+	display: inline-block;
+}
+
+.paint{
+	width:4vw;
+	border-radius: 5px;
+}
+
+.paint:hover{
+	background: lightgray;
+}
+
+.paint:active{
+	background: gray;
+}
+
+#stroke{
+	position: relative;
+	text-align: center;
+	display: inline-block;
+	margin-right:2vw;
+	padding:0;
+}
+
+#transparency{
+	display: inline-block;
+}
+
+.brush{
+	width:8vh;
+	border-radius: 5px;
+	margin-top:0.5vh;
+}
+
+.brush:hover{
+	background: gray;
+}
+
+.brush:active{
+	background: white;
+}
+
+.slider-ends{
+	max-width: 10vw;
+	margin: 0 auto;
+}
+
+#small{
+	float:left;
+	font-size: 16pt;
+	padding:0;
+	margin:0;
+}
+
+#big{
+	float:right;
+	font-size: 16pt;
+	padding:0;
+	margin:0;
+}
+
+#buttons{
+	position: relative;
+	margin:0 auto;
+	text-align: center;
+}
+
+#save{
+	margin-top:10px;
+}
+
+#thumbnail{
+	border:2px dashed #333333;
+	width: 120px;
+	height: 90px;
+	margin: 0 0 0 7vw;
+	padding: 0;
+}
+
+.thumbnail{
+	width: 116px;
+	height: 86px;
+	border: none;
+}
+
+.save{
+	float: right;
+	margin:5vh 0.5vw 0 0;
+}
+
+.export{
+	float: right;
+	margin:5vh 4vw 0 0;
+}
+
+
+#instructions{
+	position: relative;
+	border: 1px solid white;
+	margin-top: 10vh;
+	text-align: center;
+}
+
+#slider{
+	background-image: url("thickness.png");
+}
+
+#opacity-slider{
+	background-image: url("opacity.png");
+}
+
+.ui-slider{
+	position: relative;
+	max-width: 200px;
+	margin: 6vh auto auto auto;
+	background: transparent;
+	/*background: black repeat-x bottom left;*/
+    /*border-bottom: 1px solid #EBEAE5;*/
+    border: none;
+    padding: 0px;
+}
+
+.tip {
+    position: absolute;
+    text-align: center;
+    color: black;
+    z-index: 1020;
+    display: block;
+    padding: 5px;
+    font-size: 11px;
+    margin-top: -2px;
+    bottom:120%;
+    margin-left: -1.75em;   
+}
+
+.tip .tip-arrow {
+    bottom: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-top: 5px solid #000000;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.tip-inner {
+    max-width: 200px;
+    padding: 3px 8px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000000;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+}
+
+.ui-slider-handle {
+    background: #ED6B51;
+    border-bottom: 1px solid #a8a79f;
+    border-right: 1px solid #a8a79f;
+    height: 20px;
+    width: 10px;
+    margin: 0;
+    padding: 0px;
+    display: inline-block;
+}
+
+.ui-slider-range {
+    height: 10px;
+    border-bottom: 3px solid red;
+    position: relative;
+}
+
+.ui-slider-handle {
+    background: #ED6B51 !important;
+    border-bottom: 1px solid #a8a79f !important;
+    border-right: 1px solid #a8a79f !important;
+    height: 20px !important;
+    width: 10px !important;
+    margin: 0 !important;
+    padding: 0px !important;
+    display: inline-block !important;
+    top: -4px !important;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: absolute;
+    right:0;
+    top:25%;
+    background-color: rgba(0,0,0,0.5);
+    margin: auto;
+    padding: 0;
+    border: 1px solid rgba(0,0,0,0.7);
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+ }
+
+ .fadeIn{
+ 	-webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+ }
+
+  .fadeOut{
+ 	-webkit-animation-name: animateOut;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animateOut;
+    animation-duration: 0.4s;
+ }
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {right: -300px; opacity: 0} 
+    to {right: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {right: -300px; opacity: 0}
+    to {right: 0; opacity: 1}
+}
+
+@-webkit-keyframes animateOut {
+    from {right: 0; opacity: 1}
+    to {right: -300px; opacity: 0}
+}
+
+@keyframes animateOut {
+    from {right: 0; opacity: 1}
+    to {right: -300px; opacity: 0}
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: 0;
+}
+
+.btn-default{
+	background-color: rgba(255,255,255,1);
+}

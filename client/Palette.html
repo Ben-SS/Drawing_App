@@ -1,0 +1,147 @@
+<template name="Palette">
+<body>
+  <div class="wall">
+
+  {{> wall}}
+
+  </div>  
+</body>
+</template>
+
+<template name="wall">
+  <canvas hidden id="canvas_html" width="800" height="600" style="display:none"></canvas>
+  <div class="canvas col-xs-12 col-md-8">
+    {{> canvas}}
+  </div>
+  <div id="palette" class="col-xs-12 col-md-4">
+    <h1 class="palette-text3">Palette</h1>
+    <h2 class="palette-text1">Welcome to Palette, have fun creating some simple artwork!</h2>
+    <!-- <div id="background" class="container">
+      <div class="row">
+        <div class="bg-color">
+          <a class="whitebg" href=""><img title="white" class="paint" src="whitebg.png"/></a>
+        </div>
+        <div class="bg-color">
+          <a class="coralbg" href=""><img title="coral" class="paint" src="coralbg.png"/></a>
+        </div>
+        <div class="bg-color">
+          <a class="yellowbg" href=""><img title="yellow" class="paint" src="yellowbg.png"/></a>
+        </div>
+      </div>
+    </div> -->
+    <div id="shape" class="container">
+      <h2 class="palette-text2">Change the brush type here:</h2>
+      <a href="#"><img id="circle" class="brush" src="circle.png" alt="circle"/></a>
+      <a href="#"><img id="line" class="brush" src="line.png" alt="line"/></a>
+    </div>
+    <h2 class="palette-text2">Click to choose a colour:</h2>
+
+    <div id="modal-button">
+      <a id="colorBtn" href="#"><img id="splat" src="splat.png" alt="paint"/></a>
+    </div>
+    <div id="colorModal" class="modal">
+
+      <div class="modal-content">
+        <div id="colours">
+          <div class="row">
+            <div class="color col-xs-6 col-md-3">
+              <a class="lightblue" href=""><img title="lightblue" class="paint" src="lightblue.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="blue" href=""><img title="blue" class="paint" src="blue.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="red" href=""><img title="red" class="paint" src="red.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="pink" href=""><img title="pink" class="paint" src="pink.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="green" href=""><img title="green" class="paint" src="green.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="lightgreen" href=""><img title="lightgreen" class="paint" src="lightgreen.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="orange" href=""><img title="orange" class="paint" src="orange.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="yellow" title="yellow" href=""><img title="yellow" class="paint" src="yellow.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="lilac" href=""><img title="lilac" class="paint" src="lilac.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="purple" href=""><img title="purple" class="paint" src="purple.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="turqoise" href=""><img title="turqoise" class="paint" src="turqoise.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="coral" href=""><img title="coral" class="paint" src="coral.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="black" href=""><img title="black" class="paint" src="black.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="white" href=""><img title="white" class="paint" src="white.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="grey" href=""><img title="grey" class="paint" src="grey.png"/></a>
+            </div>
+            <div class="color col-xs-6 col-md-3">
+              <a class="lightgrey" href=""><img title="lightgrey" class="paint" src="lightgrey.png"/></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+
+    <div id="stroke">
+      <div id="thickness">
+        <h1 class="palette-text2">Stroke thickness:</h1>
+        <div id="slider"></div>
+        <div class="slider-ends">
+          <p id="small">-</p>
+          <p id="big">+</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="transparency">
+      <div id="opacity">
+        <h1 class="palette-text2">Stroke opacity:</h1>
+        <div id="opacity-slider"></div>
+        <div class="slider-ends">
+          <p id="small">-</p>
+          <p id="big">+</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="clear" class="container">
+      <h1 class="palette-text2">Click to clear the canvas:</h1>
+      <a class="clear"><img id="rubber" src="rubber.png" alt="paint"/></a>
+    </div>
+
+    <div id="buttons">
+      <h1 class="palette-text2">Save or export your work:</h1>
+      <div id="save">
+          <div id="thumbnail" class="col-xs-6"></div>
+          <div class="button-div col-xs-6">
+            <button class='export btn btn-success'>Export</button>
+            <button class='save btn btn-info'>Save</button>
+          </div>
+          <div hidden id="pngdataurl"></div>
+      </div>
+    </div>
+  
+  </div>
+
+</template>
+
+<template name="canvas">
+  <div id='canvas'></div>
+</template>
